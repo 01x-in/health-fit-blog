@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title, description = "Healthie.FYI - Health & Fitness Insights", fullWidth = false } = Astro.props;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -31,7 +32,7 @@ const { title, description = "Healthie.FYI - Health & Fitness Insights", fullWid
 				</a>
 				<nav class="flex gap-6 text-sm font-medium text-slate-600">
 					<a href={import.meta.env.BASE_URL} class="hover:text-teal-600 transition-colors">Home</a>
-					<a href={`${import.meta.env.BASE_URL}/about`} class="hover:text-teal-600 transition-colors">About</a>
+					<a href={`${basePath}/about`} class="hover:text-teal-600 transition-colors">About</a>
 				</nav>
 			</div>
 		</header>
