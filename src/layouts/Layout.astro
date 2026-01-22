@@ -4,9 +4,10 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	fullWidth?: boolean;
 }
 
-const { title, description = "A health and fitness blog" } = Astro.props;
+const { title, description = "Healthie.FYI - Health & Fitness Insights", fullWidth = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,29 +17,37 @@ const { title, description = "A health and fitness blog" } = Astro.props;
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
-		<header class="border-b bg-white sticky top-0 z-50">
+	<body class="bg-slate-50 min-h-screen font-sans text-slate-900 flex flex-col">
+		<header class="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
 			<div class="container mx-auto px-4 h-16 flex items-center justify-between">
-				<a href={import.meta.env.BASE_URL} class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">
-					HealthFit
+				<a href={import.meta.env.BASE_URL} class="font-serif text-2xl font-bold text-slate-900 tracking-tight">
+					Healthie<span class="text-teal-600">.FYI</span>
 				</a>
-				<nav class="flex gap-4 text-sm font-medium text-slate-600">
+				<nav class="flex gap-6 text-sm font-medium text-slate-600">
 					<a href={import.meta.env.BASE_URL} class="hover:text-teal-600 transition-colors">Home</a>
 					<a href={`${import.meta.env.BASE_URL}/about`} class="hover:text-teal-600 transition-colors">About</a>
 				</nav>
 			</div>
 		</header>
 		
-		<main class="container mx-auto px-4 py-8">
+		<main class={fullWidth ? "" : "container mx-auto px-4 py-8"}>
 			<slot />
 		</main>
 
-		<footer class="border-t bg-white py-8 mt-auto">
-			<div class="container mx-auto px-4 text-center text-slate-500 text-sm">
-				&copy; {new Date().getFullYear()} HealthFit Blog. All rights reserved.
+		<footer class="border-t border-slate-200 bg-white py-12 mt-auto">
+			<div class="container mx-auto px-4 text-center">
+				<a href={import.meta.env.BASE_URL} class="font-serif text-xl font-bold text-slate-900 tracking-tight mb-4 inline-block">
+					Healthie<span class="text-teal-600">.FYI</span>
+				</a>
+				<p class="text-slate-500 text-sm">
+					&copy; {new Date().getFullYear()} Healthie.FYI. All rights reserved.
+				</p>
 			</div>
 		</footer>
 	</body>
