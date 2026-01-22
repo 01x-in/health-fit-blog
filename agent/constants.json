@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://medcitynews.com/feed/",
+    "category": "Health",
+    "type": "rss"
+  },
+  {
+    "url": "https://www.sciencedaily.com/rss/health_medicine/fitness.xml",
+    "category": "Fitness",
+    "type": "rss"
+  }
+]

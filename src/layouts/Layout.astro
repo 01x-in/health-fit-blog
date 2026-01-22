@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "A health and fitness blog" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
+		<header class="border-b bg-white sticky top-0 z-50">
+			<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+				<a href={import.meta.env.BASE_URL} class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-500">
+					HealthFit
+				</a>
+				<nav class="flex gap-4 text-sm font-medium text-slate-600">
+					<a href={import.meta.env.BASE_URL} class="hover:text-teal-600 transition-colors">Home</a>
+					<a href={`${import.meta.env.BASE_URL}/about`} class="hover:text-teal-600 transition-colors">About</a>
+				</nav>
+			</div>
+		</header>
+		
+		<main class="container mx-auto px-4 py-8">
+			<slot />
+		</main>
+
+		<footer class="border-t bg-white py-8 mt-auto">
+			<div class="container mx-auto px-4 text-center text-slate-500 text-sm">
+				&copy; {new Date().getFullYear()} HealthFit Blog. All rights reserved.
+			</div>
+		</footer>
+	</body>
+</html>
