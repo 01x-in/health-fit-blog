@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.github.io', // Placeholder, will be overridden by GitHub Actions environment if needed
-  base: '/health-fit-blog', // Assuming repo name is health-fit-blog
+  site: 'https://healthie.fyi',
   vite: {
     plugins: [tailwindcss()]
   }
